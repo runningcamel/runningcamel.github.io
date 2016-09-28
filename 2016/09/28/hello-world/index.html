@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   
     <title>Hello World | Hexo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="John Doe">
     
@@ -22,47 +22,38 @@
     <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
     
     <link rel="stylesheet" href="/css/style.css">
-    <link href="/css/hover.css" rel="stylesheet">
-    <link href="/css/bottom.css" rel="stylesheet">
 </head>
-
-<script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?1512c27886dc2783bc044b22ea4c912d";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
 
   <body>
     <header>
       <div>
 		
 			<div id="imglogo">
-				<a rel="pulse" class="pulse" href="/"><img src="/img/pacman.png" alt="Hexo" title="Hexo"/></a>
+				<a href="/"><img src="/img/logo.svg" alt="Hexo" title="Hexo"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a rel="hover" class="hover" href="/" title="Hexo">Hexo</a></h1>
-				<h2 class="blog-motto"></a></h2>
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a rel="buzz" class="buzz" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
-					<ul>
-					 
-						<li><a rel="wobble-top" class="wobble-top" href="/">Home</a></li>
 					
-						<li><a rel="wobble-top" class="wobble-top" href="/archives">Menu</a></li>
+						<li><a href="/">Home</a></li>
 					
-						<li><a rel="wobble-top" class="wobble-top" href="/tags">Index</a></li>
+						<li><a href="/archives">Archives</a></li>
 					
-						<li><a rel="wobble-top" class="wobble-top" href="/about">About</a></li>
+					<li>
 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
 				</ul>
 			</nav>			
 </div>
@@ -120,10 +111,6 @@ var _hmt = _hmt || [];
 	</article>
 	
 	
-<section class="comment">
-	<div class="ds-thread"></div>
-</section>
-
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
@@ -138,29 +125,11 @@ var _hmt = _hmt || [];
 
   
 
-
-  <div class="linkslist">
-<h3 rel="grow" class="grow asidetitle">友情链接</h3>
-<ul class="entry">
-<li><a rel="grow" class="grow" href="http://blog.jobbole.com" title="伯乐在线">伯乐在线</a></li>
-</ul>
-</div>
-
-
   
 
   <div class="rsspart">
 	<a href="null" target="_blank" title="rss">RSS 订阅</a>
 </div>
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li></ul>
-  </div>
-
-
-  
 
 </aside>
 </div>
@@ -173,21 +142,21 @@ var _hmt = _hmt || [];
 	</div>
 	
 	
-	<div class="social-font" class="clearfix">
+	<div class="social-font clearfix">
+		
 		
 		
 		
 		
 	</div>
-		<p class="copyright">Powered by <a rel="float-shadow" class="float-shadow" href="http://zespia.tw/hexo/" target="_blank" title="hexo">Hexo</a> and Theme by <a class="box-shadow-inset"href="https://github.com/uruir/pacmanhover" target="_blank" title="Pacman">PacmanHover</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
 		
-		
-		<a class="wobble-horizontal" rel="wobble-horizontal" href="http://yoursite.com" target="_blank" title="John Doe">John Doe</a>
+		<a href="http://yoursite.com" target="_blank" title="John Doe">John Doe</a>
 		
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    <script src="/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -297,40 +266,7 @@ $(document).ready(function(){
 </script>
 
 
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
 
 
 
