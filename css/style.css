@@ -592,7 +592,7 @@ header nav ul li a:hover {
   }
 }
 #main section.post {
-  background: #ced280;
+  background: #fafafa;
   margin-bottom: 0.125em;
 }
 #main section.post a {
@@ -630,7 +630,7 @@ header nav ul li a:hover {
   margin-left: 10% !important;
 }
 #page-nav {
-  background: #ced280;
+  background: #fafafa;
   text-align: center;
   overflow: hidden;
 }
@@ -706,7 +706,7 @@ header nav ul li a:hover {
   margin: 1em 0;
   width: 97%;
   padding: 2em 0 2em 3%;
-  background: #ced280;
+  background: #fafafa;
   border-left: 0.5em solid #ccc;
 }
 @media only screen and (min-width: 1024px) {
@@ -780,7 +780,7 @@ header nav ul li a:hover {
 }
 .post,
 .page {
-  background: #ced280;
+  background: #fafafa;
 }
 .post a,
 .page a {
@@ -876,7 +876,7 @@ article .article-content h3,
 article .article-content h4,
 article .article-content h5,
 article .article-content h6 {
-  color: #333;
+  color: #ced280;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0.3em 0;
@@ -911,7 +911,7 @@ article .article-content blockquote {
   font-size: 110%;
 }
 article .article-content blockquote footer {
-  background: #ced280;
+  background: #fafafa;
   padding: 0;
   margin: 0;
   font-size: 80%;
@@ -1040,7 +1040,7 @@ article .article-content .right {
   float: right;
 }
 footer.article-footer {
-  background: #ced280;
+  background: #fafafa;
   padding: 0 4%;
   margin: 0;
   border-top: 1px solid #dbdbdb;
@@ -1396,7 +1396,7 @@ section.comment {
   overflow: hidden;
   line-height: 1.5em;
   font-size: 1em;
-  color: #333;
+  color: #ced280;
   opacity: 0.6;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
   filter: alpha(opacity=60);
@@ -1482,7 +1482,7 @@ section.comment {
   }
 }
 #asidepart {
-  background: #ced280;
+  background: #fafafa;
   margin: 1em 0 0;
   padding: 0.5em 2% 1em;
 }
@@ -1594,7 +1594,7 @@ section.comment {
 }
 .rsspart a:hover {
   color: #ea6753;
-  background: #ced280;
+  background: #fafafa;
 }
 .rsspart a::before {
   font-family: "FontAwesome";
@@ -1882,7 +1882,7 @@ footer {
   color: #ea6753 !important;
 }
 .ds-avatar {
-  background: #ced280 !important;
+  background: #fafafa !important;
 }
 .ds-avatar img {
   width: 54px !important;
@@ -1952,7 +1952,7 @@ textarea::-moz-placeholder {
   color: #817c7c !important;
 }
 .article-gallery {
-  background: #ced280;
+  background: #fafafa;
   position: relative;
 }
 .article-gallery-photos {
