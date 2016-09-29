@@ -1138,8 +1138,8 @@ footer.article-footer {
   content: "\f062";
 }
 .article-back-to-top:hover {
-  background: #762c54;
-  text-shadow: 0 1px #5e2343;
+  background: #ced280;
+  text-shadow: 0 1px #bbc04e;
 }
 .qrcode {
   width: 15em;
