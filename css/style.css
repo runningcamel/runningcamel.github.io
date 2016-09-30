@@ -1715,7 +1715,7 @@ section.comment {
   transition: color 0.25s;
 }
 footer {
-  margin-top: auto;
+  margin-top: 1em;
   background: #1f1f1f;
   padding: 0 2% 0.5em;
 }
