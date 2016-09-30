@@ -114,7 +114,7 @@ body {
   background: #ddd;
   font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 100%;
-  color: #817c7c;
+  color: #000;
   line-height: 1.5;
 }
 small {
@@ -136,7 +136,7 @@ sub {
 }
 a {
   text-decoration: none;
-  color: #817c7c;
+  color: #000;
 }
 a:hover,
 a:focus {
@@ -365,8 +365,8 @@ input[type="search"]::-webkit-search-decoration {
 }
 body >header {
   width: 100%;
-  -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-  box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
+  -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.5);
+  box-shadow: 2px 4px 5px rgba(3,3,3,0.5);
   background: #ced280;
   color: #fff;
   padding: 1em 0 0.8em;
@@ -448,12 +448,12 @@ body >header a {
 }
 @media only screen and (min-width: 768px) {
   #textlogo h2.blog-motto {
-    font-size: 100%;
+    font-size: font-size-10;
   }
 }
 @media only screen and (min-width: 1024px) {
   #textlogo h2.blog-motto {
-    font-size: 110%;
+    font-size: 100%;
   }
 }
 .navbar {
@@ -540,7 +540,7 @@ header nav ul li a:hover {
 }
 @media only screen and (min-width: 1024px) {
   .search input {
-    width: 8em;
+    width: 10em;
     -webkit-transition: 0.5s width;
     -moz-transition: 0.5s width;
     -o-transition: 0.5s width;
@@ -618,10 +618,10 @@ header nav ul li a:hover {
   line-height: 2;
 }
 #main section.post a p {
-  color: #817c7c;
+  color: #000;
 }
 #main section.post a time {
-  color: #817c7c;
+  color: #000;
   display: block;
   margin: 0.5em 0;
   font-size: 0.5em;
@@ -951,7 +951,7 @@ article .article-content strong code,
 article .article-content em code {
   font-family: Monaco, Menlo, Consolas, Courier New, monospace;
   background: #eee;
-  color: #747070;
+  color: #000;
   border: 1px solid #d6d6d6;
   padding: 0 5px;
   margin: 0 2px;
@@ -966,7 +966,7 @@ article .article-content p {
 }
 @media only screen and (min-width: 1024px) {
   article .article-content p {
-    margin: 1.2em 0;
+    margin: 0.2em 0;
   }
 }
 article .article-content img,
@@ -1092,7 +1092,7 @@ footer.article-footer {
   font-size: 100%;
   font-family: "FontAwesome";
   text-align: center;
-  color: #817c7c;
+  color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 1.5em;
@@ -1408,7 +1408,7 @@ section.comment {
 }
 #toc.toc-aside strong {
   padding: 0.3em 0;
-  color: #817c7c;
+  color: #000;
 }
 #toc.toc-aside:hover {
   -webkit-transition: opacity 0.3s ease-out;
@@ -1715,7 +1715,7 @@ section.comment {
   transition: color 0.25s;
 }
 footer {
-  margin-top: 1em;
+  margin-top: 0.2em;
   background: #1f1f1f;
   padding: 0 2% 0.5em;
 }
@@ -1727,7 +1727,7 @@ footer {
 }
 #footer .line {
   width: 100%;
-  height: 14em;
+  height: 3em;
   margin: 0 auto;
 }
 @media only screen and (min-width: 768px) {
@@ -1942,14 +1942,14 @@ footer {
   padding-bottom: 1em !important;
 }
 textarea {
-  color: #817c7c !important;
+  color: #000 !important;
   background: #fff !important;
 }
 textarea::-webkit-input-placeholder {
-  color: #817c7c !important;
+  color: #000 !important;
 }
 textarea::-moz-placeholder {
-  color: #817c7c !important;
+  color: #000 !important;
 }
 .article-gallery {
   background: #fafafa;
