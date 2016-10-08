@@ -1,0 +1,511 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CH">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>String类总结 | 疯狂的骆驼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="camel">
+    
+    <meta name="description" content="一、String类的两种赋值方式1、直接赋值String str = &amp;quot;Hello&amp;quot;;
+2、构造方法赋值String str = new String(&amp;quot;Hello&amp;quot;);
+3、两种赋值方法的区别
+
+直接赋值法创建一个栈内存和一个堆内存，并且直接入池，以后只要通">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/china.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/camel.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/camel.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+  <script src="https://leancloud.cn/scripts/lib/av-0.4.6.min.js"></script>
+  <script>AV.initialize("wSSAPgAM3U9CMx31dw0yKPsK-gzGzoHsz", "jL71foHSaB19JWEsnjFcB5eK");</script>
+</head>
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/camel.jpg" alt="疯狂的骆驼" title="疯狂的骆驼"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="疯狂的骆驼">疯狂的骆驼</a></h1>
+				<h2 class="blog-motto">记录成长路上的点点滴滴</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">文章</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//baidu.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/08/String类总结/" title="String类总结" itemprop="url">String类总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="camel">camel</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-10-08T01:39:46.000Z" itemprop="datePublished">2016-10-08</time>
+    Updated:<time datetime="2016-10-08T14:56:26.022Z" itemprop="dateModified">2016-10-08</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、String类的两种赋值方式"><span class="toc-number">1.</span> <span class="toc-text">一、String类的两种赋值方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、关于字符串比较的说明"><span class="toc-number">2.</span> <span class="toc-text">二、关于字符串比较的说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、String类常用的函数"><span class="toc-number">3.</span> <span class="toc-text">三、String类常用的函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、字符串和字符"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、字符串和字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、字符串和字节"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、字符串和字节</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、字符串比较"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、字符串比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、字符串查找"><span class="toc-number">3.0.4.</span> <span class="toc-text">4、字符串查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、字符串替换"><span class="toc-number">3.0.5.</span> <span class="toc-text">5、字符串替换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、字符串截取"><span class="toc-number">3.0.6.</span> <span class="toc-text">6、字符串截取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7、字符串拆分"><span class="toc-number">3.0.7.</span> <span class="toc-text">7、字符串拆分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8、其他方法汇总"><span class="toc-number">3.0.8.</span> <span class="toc-text">8、其他方法汇总</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h3 id="一、String类的两种赋值方式"><a href="#一、String类的两种赋值方式" class="headerlink" title="一、String类的两种赋值方式"></a>一、String类的两种赋值方式</h3><p><font color="#000000">1、直接赋值</font><br><code>String str = &quot;Hello&quot;;</code></p>
+<p><font color="#000000">2、构造方法赋值</font><br><code>String str = new String(&quot;Hello&quot;);</code></p>
+<p><font color="#000000">3、两种赋值方法的区别</font></p>
+<ul>
+<li>直接赋值法创建一个栈内存和一个堆内存，并且直接入池，以后只要通过直接赋值的方法新建相同的字符串，则指向的是同一块内存；</li>
+<li>构造方法赋值创建一个栈内存和两个堆内存，其中有一个字符串成为垃圾，等待GC回收,可以通过intern()函数进行手动入池。<br><font color="#FF0000">下面给出示意图:</font><img src="https://cl.ly/031D022J3I0N/String%E8%B5%8B%E5%80%BC.png" alt=""></li>
+</ul>
+<hr>
+<h3 id="二、关于字符串比较的说明"><a href="#二、关于字符串比较的说明" class="headerlink" title="二、关于字符串比较的说明"></a>二、关于字符串比较的说明</h3><p>1、”==”比较是数值比较，对于字符串而言就是内存地址的比较，即比较栈内存;String类中的equals()函数用于字符串的内容比较，即比较堆内存。<br>2、举例来说明两者的区别：</p>
+<ul>
+<li><code>String str =new String(&quot;hello&quot;);</code></li>
+<li><code>String str1 = new String(&quot;hello&quot;).intent();</code></li>
+<li><code>String str2 = &quot;hello&quot;;</code></li>
+<li><code>String str3 = &quot;hello&quot;;</code></li>
+</ul>
+<p>则判断一下命题：<br>1.<code>System.out.printf(str == str1);//false</code><br>2.<code>System.out.printf(str == str2);//false</code><br>3.<code>System.out.printf(str1 == str2);//true</code><br>4.<code>System.out.printf(str2 == str3);//true</code><br>5.<code>System.out.printf(str1 == str3);//true</code><br>6.<code>System.out.printf(str.equals(str3));//true</code></p>
+<p><font color="#FF0000">分析:</font><br>　　a.构造赋值所建立的字符串是new出来的，而不是直接赋值”hello”出来的，由上图可以知道;<br>　　b.String类中的equals()函数比较的是内容，故只要字符串相同，名字不同，结果也为true;<br>　　c.手动入池intent()后就进入了直接赋值的那个内存空间了，如同直接赋值一样，这个时候就不存在垃圾。</p>
+<p><font color="#FF0000" size="4px">友情提示：</font>使用<em><font color="#0000FF">equals()</font></em>函数时将字符串常量放在前面可以避免出现空指针异常，如<code>&quot;hello&quot;.equals(str);</code>。</p>
+<hr>
+<h3 id="三、String类常用的函数"><a href="#三、String类常用的函数" class="headerlink" title="三、String类常用的函数"></a>三、String类常用的函数</h3><h5 id="1、字符串和字符"><a href="#1、字符串和字符" class="headerlink" title="1、字符串和字符"></a>1、字符串和字符</h5><ul>
+<li><code>public String(char[] value)</code><font color="#FF0000"> ===&gt; </font>这是一个构造方法，作用是将所有的字符数组内容转换为字符串;</li>
+<li><code>public String(char[] value,int offset,int count)</code> <font color="#FF0000"> ===&gt; </font>这是一个构造方法，作用是将部分字符数组转换成字符串，<em><font color="#0000FF">offset</font></em>表示开始点，<em><font color="#0000FF">count</font></em>表示要操作的字符长度;</li>
+<li><code>public char charAt(int index)</code>#FF0000”&gt;<font color="#FF0000"> ===&gt; </font> 普通方法，作用是取得指定索引位置上的字符;</li>
+<li><code>public char[] toCharArray()</code>#FF0000”&gt;<font color="#FF0000"> ===&gt; </font> 普通方法，作用是将字符串转换为字符数组。</li>
+</ul>
+<h5 id="2、字符串和字节"><a href="#2、字符串和字节" class="headerlink" title="2、字符串和字节"></a>2、字符串和字节</h5><ul>
+<li><code>public String(byte[] bytes)</code><font color="#FF0000"> ===&gt; </font>这是一个构造方法，作用是将所有的字节数组内容转换为字符串;</li>
+<li><code>public String(byte[] bytes,int offset,int length)</code> <font color="#FF0000"> ===&gt; </font>这是一个构造方法，作用是将部分字节数组转换成字符串，<em><font color="#0000FF">offset</font></em>表示开始点，<em><font color="#0000FF">length</font></em>表示要操作的字节长度;</li>
+<li><code>public byte[] getBytes()</code><font color="#FF0000"> ===&gt; </font> 普通方法，作用是将字符串变为字节数组;</li>
+<li>public byte[] getBytes(String charsetName)`#FF0000”&gt;<font color="#FF0000"> ===&gt; </font> 普通方法，作用是字符串转码操作。</li>
+</ul>
+<h5 id="3、字符串比较"><a href="#3、字符串比较" class="headerlink" title="3、字符串比较"></a>3、字符串比较</h5><ul>
+<li><code>public boolean equals(String anObject)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用区分大小写的内容比较，返回值为布尔型;</li>
+<li><code>public boolean equalsIgnoreCase(String anotherString)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用不区分大小写的内容比较，返回值为布尔型;</li>
+<li><code>public int compareTo(String anotherString)</code><font color="#FF0000"> ===&gt; </font> 普通方法，作用是比较两个字符串的大小，返回结果又三种:大于(返回结果大于0)，小于(返回结果小于0)和等于(返回结果等于0)。</li>
+</ul>
+<h5 id="4、字符串查找"><a href="#4、字符串查找" class="headerlink" title="4、字符串查找"></a>4、字符串查找</h5><ul>
+<li><code>public boolean contains(String s)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用查找指定的子字符是否存在，返回值为布尔型;</li>
+<li><code>public int indexOf(String str)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用从头查找指定字符串的位置，找不到返回-1;</li>
+<li><code>public int indexOf(String str,int fromIndex)</code><font color="#FF0000"> ===&gt; </font> 普通方法，作用是由指定位置向后查找字符串的位置，找不到返回-1。</li>
+<li><code>public int lastIndexOf(String str)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用从后向前查找指定字符串的位置，找不到返回-1;</li>
+<li><code>public int lastindexOf(String str,int fromIndex)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是由指定位置从后向前查找指定字符串的位置，找不到返回-1;</li>
+<li><code>public boolean startsWith(String prefix)</code><font color="#FF0000"> ===&gt; </font> 普通方法，作用是判断是否以指定的字符串开头。</li>
+<li><code>public boolean startsWith(String prefix，int offset)</code><font color="#FF0000"> ===&gt; </font> 普通方法，作用是从<em><font color="#0000FF">offset</font></em>位置判断是否以指定字符串开头。</li>
+<li><code>public boolean endsWith(String suffix)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是判断是否以指定字符串结尾;</li>
+</ul>
+<h5 id="5、字符串替换"><a href="#5、字符串替换" class="headerlink" title="5、字符串替换"></a>5、字符串替换</h5><ul>
+<li><code>public String replaceAll(String regex, String replacement)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是用<em><font color="#0000FF">replacement</font></em>来代替原来字符串中所有的<em><font color="#0000FF">regex</font></em>;</li>
+<li><code>public String replaceFirst(String regex, String replacement)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是用<em><font color="#0000FF">replacement</font></em>来代替原来字符串中第一个<em><font color="#0000FF">regex</font></em>;</li>
+</ul>
+<h5 id="6、字符串截取"><a href="#6、字符串截取" class="headerlink" title="6、字符串截取"></a>6、字符串截取</h5><ul>
+<li><code>public String substring(int beginIndex)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是从指定位置上截取到结尾，返回的是截取到的内容;</li>
+<li><code>public String substring(int beginIndex, int endIndex)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是截取指定范围的内容;</li>
+</ul>
+<h5 id="7、字符串拆分"><a href="#7、字符串拆分" class="headerlink" title="7、字符串拆分"></a>7、字符串拆分</h5><ul>
+<li><code>public String[] split(String regex)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是按照指定的字符串全拆分，返回的是字符串数组;</li>
+<li><code>public String[] split(String regex, int limit)</code><font color="#FF0000"> ===&gt; </font>普通方法，作用是拆分为指定长度为<em><font color="#0000FF">limit</font></em>的字符串数组;</li>
+</ul>
+<p><font color="#FF0000" size="4px">注意：</font>使用转义时<em><font color="#0000FF"><code>&quot;\\&quot;</code></font></em>表示的是一个<code>&quot;\&quot;</code>,因为<code>&quot;\&quot;</code>也需要转义,然后用”\“来进行一些需要转义的字符，如<code>&quot;\\.&quot;</code>表示的是<code>&quot;.&quot;</code>。</p>
+<h5 id="8、其他方法汇总"><a href="#8、其他方法汇总" class="headerlink" title="8、其他方法汇总"></a>8、其他方法汇总</h5><ul>
+<li><code>public boolean isEmpty()</code><font color="#FF0000"> ===&gt; </font>普通方法，判断是否为空字符串;</li>
+<li><code>public int length()</code><font color="#FF0000"> ===&gt; </font>普通方法，取得字符串长度;</li>
+<li><code>public String trim()</code><font color="#FF0000"> ===&gt; </font>普通方法，去掉左右空格;</li>
+<li><code>public String toLowerCase()</code><font color="#FF0000"> ===&gt; </font>普通方法，将全部字符串转化为小写;</li>
+<li><code>public String toUpperCase()</code><font color="#FF0000"> ===&gt; </font>普通方法，将全部字符串转化为大写;</li>
+<li><code>public String intern()</code><font color="#FF0000"> ===&gt; </font>普通方法，入池;</li>
+<li><code>public String concat(String str)</code><font color="#FF0000"> ===&gt; </font>普通方法，字符串连接。</li>
+</ul>
+<p><font color="#FF0000" size="4px">注意：</font>数组中<em><font color="#0000FF"><code>length</code></font></em>是一个属性，而字符串中是length()函数。</p>
+<hr>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">Java</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术总结/">技术总结</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/10/08/String类总结/" data-title="String类总结 | 疯狂的骆驼" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/10/08/学习计划-第一天/"  title="学习计划-第一天">
+ <strong>NEXT:</strong><br/> 
+ <span>学习计划-第一天
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、String类的两种赋值方式"><span class="toc-number">1.</span> <span class="toc-text">一、String类的两种赋值方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、关于字符串比较的说明"><span class="toc-number">2.</span> <span class="toc-text">二、关于字符串比较的说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、String类常用的函数"><span class="toc-number">3.</span> <span class="toc-text">三、String类常用的函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、字符串和字符"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、字符串和字符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、字符串和字节"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、字符串和字节</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、字符串比较"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、字符串比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、字符串查找"><span class="toc-number">3.0.4.</span> <span class="toc-text">4、字符串查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、字符串替换"><span class="toc-number">3.0.5.</span> <span class="toc-text">5、字符串替换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、字符串截取"><span class="toc-number">3.0.6.</span> <span class="toc-text">6、字符串截取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7、字符串拆分"><span class="toc-number">3.0.7.</span> <span class="toc-text">7、字符串拆分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8、其他方法汇总"><span class="toc-number">3.0.8.</span> <span class="toc-text">8、其他方法汇总</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">分类</p>
+		<ul class="clearfix">
+		
+			<li><a href="/categories/学习计划/" title="学习计划">学习计划<sup>1</sup></a></li>
+		
+			<li><a href="/categories/技术总结/" title="技术总结">技术总结<sup>1</sup></a></li>
+		
+			<li><a href="/categories/生活记录/" title="生活记录">生活记录<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/java/" title="Java">Java<sup>1</sup></a></li>
+		
+			<li><a href="/tags/record/" title="record">record<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="categorieslist">
+    <p class="asidetitle">友情链接</p>
+      <ul>
+        
+          <li class='link'><a href='http://www.seu.edu.cn/'>东南大学</a></li>
+        
+          <li class='link'><a href='https://github.com/xzzc'>Github</a></li>
+        
+          <li class='link'><a href='http://hdtv.neu6.edu.cn/'>Ipv6电视</a></li>
+        
+          <li class='link'><a href='http://www.w3school.com.cn/index.html'>W3school</a></li>
+        
+          <li class='link'><a href='http://www.jianshu.com/p/1e402922ee32/'>Markdown</a></li>
+        
+      </ul>
+  </div>
+
+
+  
+    <div class="categorieslist">
+    <h3 class="asidetitle">最热文章</h3>
+    <div class="widget">
+      <ul class="popularlist">
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		
+		<a href="http://yoursite.com" target="_blank" title="camel">camel</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"runningcamel"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1512c27886dc2783bc044b22ea4c912d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+        url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query=new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results){
+            if(results.length>0)
+            {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            }
+            else
+            {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter){
+                    //alert('New object created');
+                    },
+                    error: function(newcounter,error){
+                    alert('Failed to create');
+                    }
+                    });
+            }
+        },
+        error: function(error){
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function(){
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1)
+       addCount(Counter);
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results){
+                for(var i=0;i<results.length;i++)    
+                {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error){
+            alert("Error:"+error.code+" "+error.message);
+        }
+        }
+    )
+    });
+  </body>
+</html>
