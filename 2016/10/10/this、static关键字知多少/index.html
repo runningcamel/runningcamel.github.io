@@ -78,7 +78,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-10-10T11:59:54.000Z" itemprop="datePublished">2016-10-10</time>
-    Updated:<time datetime="2016-10-10T12:48:29.128Z" itemprop="dateModified">2016-10-10</time>
+    Updated:<time datetime="2016-10-10T13:00:03.889Z" itemprop="dateModified">2016-10-10</time>
     
   </p>
 </header>
@@ -91,11 +91,11 @@
 		</div>
 		
 		<blockquote>
-<p>前言：本讲将讨论以下几个方面的问题<br>1.this关键字;<br>2.static关键字;<br>3.引用传递中的问题;<br>4.常见的几种代码块总结.<br><br></p>
+<p>前言：本讲将讨论以下几个方面的问题<br>1.this关键字;<br>2.static关键字;<br>3.引用传递中的问题;<br>4.常见的几种代码块总结.</p>
 </blockquote>
 <h2 id="一、this关键字"><a href="#一、this关键字" class="headerlink" title="一、this关键字"></a>一、this关键字</h2><p>　　<em><font color="#FF0000">this</font></em>关键字在Java中主要有三个作用：表示本类属性、表示本类方法和当前对象。可以用下图来说明：<br><img src="https://cl.ly/2S1M3L3p1Z0O/download/this%E7%B1%BB.PNG" alt=""><br> 　　<strong><font color="#FF0000" size="3px">注意：</font></strong><br>　　1、使用<code>this()</code>来调用构造方法时，一定要放在构造方法的首行，如<br>　　<code>public　Person(String name){</code><br>　　　　　<code>this();//放在首行</code><br>　　　　　<code>this.name = name;``　　　}</code><br> 　　2、如果一个类中存在多个构造方法，并且这些构造方法都是用了<code>this()</code>相互调用，那么至少保　　留一个构造方法没有调用其他构造方法，作为程序的出口。</p>
 <h2 id="二、static关键字"><a href="#二、static关键字" class="headerlink" title="二、static关键字"></a>二、static关键字</h2><p>　　要想深入了解<em><font color="#FF0000">static</font></em>关键字,首先要知道Java中的内存空间的知识，如下图，Java的内存主要有四个部分，栈内存、堆内存、全局数据区和全局代码区，各个部分的作用如图所示:</p>
-<div align="center"><br><img src="https://cl.ly/3c0j2S2y432C/download/java%E5%86%85%E5%AD%98.PNG" width="auto" height="auto" alt="图片名称" align="center"><br></div>  
+<div align="center"><img src="https://cl.ly/3c0j2S2y432C/download/java%E5%86%85%E5%AD%98.PNG"></div>  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -123,14 +123,6 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/10/10/this、static关键字知多少-1/" title="this、static关键字知多少">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  this、static关键字知多少</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2016/10/08/String类总结/"  title="String类总结">
